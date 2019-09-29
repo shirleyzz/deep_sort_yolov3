@@ -1,6 +1,7 @@
 QQ group: 姿态检测＆跟踪 781184396
 # Set up Cuda and cudnn on  Ubuntu 16.04/18.04
 $ sudo apt-get update
+
 $ sudo apt-get upgrade
 $ sudo apt-get dist-upgrade
 $ sudo apt-get install git curl cmake
