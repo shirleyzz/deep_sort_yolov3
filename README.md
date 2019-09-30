@@ -64,6 +64,32 @@ $ nvcc -V
 
 $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 
+#install tensorlfow-gpu and opencv keras(for python3.5):
+
+$ sudo pip install virtualenv virtualenvwrapper
+
+$nano ~/.bash_profile
+
+#add these lines
+
+#virtualenv and virtualenvwrapper
+
+export WORKON_HOME=$HOME/.virtualenvs
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+
+source /usr/local/bin/virtualenvwrapper.sh
+
+$ source ~/.bash_profile
+
+$ mkvirtualenv cv -p python3
+
+$ pip install opencv-contrib-python
+
+$ pip install tensorflow-gpu==1.12.0
+
+$ pip install keras==2.2.4
+
 # Reference
 
 1. https://medium.com/@anujonthemove/deep-learning-environment-setup-on-ubuntu-16-04-83078e1cba1f
