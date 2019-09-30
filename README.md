@@ -3,43 +3,71 @@ QQ group: 姿态检测＆跟踪 781184396
 $ sudo apt-get update
 
 $ sudo apt-get upgrade
+
 $ sudo apt-get dist-upgrade
+
 $ sudo apt-get install git curl cmake
+
 #Install nvidia drivers: Ubuntu 18.04 chooose nvidia-390, Ubuntu 16.04 choose nvidia-375
+
 $ sudo add-apt-repository ppa:graphics-drivers/ppa
+
 $ sudo apt-get update
+
 Step 1: Go to tty1 virtual console :Press Ctrl + Alt + F1
+
 Step 2: Install Nvidia driver (nvidia-375 for Ubuntu 16.04)
+
 $ sudo apt-get install nvidia-375
+
 $ sudo reboot
+
 Step 3: Check
+
 $ nvidia-smi
 
 #Install NVIDIA CUDA toolkit: first download cuda 9.0
+
 $ cd ~/Downloads # assuming that the install files are here
+
 $ sudo sh cuda_9.0.176_384.81_linux.run
+
 Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 384.81?
 (y)es/(n)o/(q)uit: n
 Others: choose yes
 
 #Install NVIDIA cuDNN: downlaod cudnn-7.3.1 for cuda 9.0
+
 $ sudo tar -xzvf cudnn-9.0-linux-x64-v7.4.1.5.tgz
+
 $ sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+
 $ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+
 $ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+
 #Setup your paths
+
 $ echo 'export PATH=/usr/local/cuda-9.0/bin:$PATH' >> ~/.bashrc
+
 $ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+
 $ source ~/.bashrc
+
 $ sudo ldconfig
 
 #Verify
+
 $ nvidia-smi
+
 $ nvcc -V
+
 $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 
 # Reference
+
 1. https://medium.com/@anujonthemove/deep-learning-environment-setup-on-ubuntu-16-04-83078e1cba1f
+
 2. https://gist.github.com/Mahedi-61/2a2f1579d4271717d421065168ce6a73
 
 # Introduction
